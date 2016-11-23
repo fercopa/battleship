@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block section %}
+    <h3>Sala: {{ room.name }}</h3>
+    <h4>Jugadores:</h4>
+    <ul>
+        {% for player in players %}
+        <li>{{ player }} {% if player.ready %} : Listo{% endif %}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+{% block article %}
+    <form action="{%url 'create-player-view' room.id %}">
+        <input type="submit" value="Unirme">
+    </form>
+    {% if request.user == admin %}
+        <form action="{% url 'start-game-view' room=room.id%}" method="get">
+            <input type="submit" value="Comenzar">
+        </form>
+    {% endif %}
+{% endblock %}

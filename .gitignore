@@ -1,0 +1,6 @@
+env/
+*.pyc
+*.sqlite3
+src/battleship/migrations
+src/battleship/__pycache__
+src/config/__pycache__

@@ -1,0 +1,9 @@
+{% extends 'model_table.html' %}
+{% block section %}
+<h3>Sala: {{ room.name }}</h3>
+<h4>Turno de: {{ player_turn.name }}</h4>
+<h4>Jugador: {{ player.name }}</h4>
+<form action="{% url 'attack-view' room=room.id %}" method="get">
+    <input type="submit" value="Atacar">
+</form>
+{% endblock %}

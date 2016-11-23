@@ -1,0 +1,8 @@
+{% extends 'model_table.html' %}
+{% block section %}
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Seleccionar">
+</form>
+{% endblock %}

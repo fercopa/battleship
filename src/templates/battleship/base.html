@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <h4>{{ user.username }}</h4>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        {% block header %}
+        {% endblock %}
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul id="NavegationList">
+                    <li><a href="/">Inicio</a></li>
+                    {% if request.user.is_authenticated %}
+                        <li><a href="{% url 'logout-view' %}">Cerrar sesion</a></li>
+                    {% else %}
+                        <li><a href="{% url 'signup-view' %}">Registrarse</a></li>
+                        <li><a href="{% url 'login-view' %}">Iniciar sesion</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+            {% if messages %}
+                {% if errors %} {{ errors }} {% endif %}
+                <ul id="ErrorList">
+                    {% for msg in messages %}
+                        <li>{{ msg }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </header>
+        <section>
+            {% block section %}
+            {% endblock %}
+            <article>
+                {% block article %}
+                {% endblock %}
+            </article>
+        </section>
+        <aside>
+            {% block aside %}
+            {% endblock %}
+        </aside>
+        <footer>
+            Realizado por Fernando Copa.
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,10 @@
+{% extends 'model_table.html' %}
+
+{% block section %}
+    <form action="{% url 'set-boats-view' room=room.id table=table_obj %}" method="get">
+        {% csrf_token %}
+        <div align="center">
+            <input type="submit" value="Ubicar flota">
+        </div>
+    </form>
+{% endblock %}

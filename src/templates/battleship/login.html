@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>Inicar sesión</h1>
+{% endblock %}
+
+{% block article %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+            {{ form }}
+        </table>
+        <p><input type="submit" value="Aceptar"></p>
+    </form>
+{% endblock %}
